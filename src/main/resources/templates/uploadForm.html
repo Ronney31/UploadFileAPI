@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h1 align="center">Welcome to Upload File Page</h1>
+	<br>
+	<div align="center">
+		<form method="POST" enctype="multipart/form-data" action="/upload/up">
+			<table>
+				<tr>
+					<td>Click to Upload File :</td>
+					<td><input type="file" name="file" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Upload" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div align="left" style="margin-left: 25rem;">
+		<ul style="list-style-type: circle;">
+			<li th:each="file : ${files}"><a th:href="@{${file.url}}"
+				th:text="${file.name}" /></li>
+		</ul>
+	</div>
+</body>
+</html>
